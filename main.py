@@ -1,17 +1,35 @@
 import json
+from datetime import datetime
 
+def is_valid_date(date_text):
+    try:
+        datetime.strptime(date_text,"%Y-%m-%d")
+        return True
+    except ValueError:
+        return False
+               
 with open("applications.json","r") as file:
   applications = json.load(file)
 
 
 def add_application(applications):
+
+    application_date = input("enter application date (YYYY-MM-DD): ").strip()
+    deadline=input("enter deadline (YYYY-MM-DD): ").strip()
+    if not is_valid_date(application_date):
+        print("Invalid data format.Please use YYYY-MM-DD")
+        return
+
+    if not is_valid_date(deadline):
+        print("Invalid deadline format.Please use YYYY-MM-DD")
+        return
     
     application = {
         "company": input("enter company name: ").strip(),
         "job_role": input("enter job role: ").strip(),
         "location": input("enter location: ").strip(),
-        "application_date": input("enter application date: ").strip(),
-        "deadline": input("enter deadline: ").strip(),
+        "application_date": application_date,
+        "deadline": deadline,
         "status": input("enter status: ").strip(),
         "job_url": input("enter job url: ").strip(),
     }
