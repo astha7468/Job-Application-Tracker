@@ -23,6 +23,13 @@ def add_application(applications):
     if not is_valid_date(deadline):
         print("Invalid deadline format.Please use YYYY-MM-DD")
         return
+
+    application_date_obj=datetime.strptime(application_date, "%Y-%m-%d")
+    deadline_obj=datetime.strptime(deadline, "%Y-%m-%d")
+
+    if deadline_obj < application_date_obj:
+        print("Deadline cannot e before application date.")
+        return
     
     application = {
         "company": input("enter company name: ").strip(),
