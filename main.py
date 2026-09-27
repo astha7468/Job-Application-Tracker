@@ -219,6 +219,20 @@ def show_dashboard(applications):
     print("Rejected:", rejected)
 
 
+def sort_by_deadline(applications):
+    sorted_applications = sorted(
+        applications,
+        key=lambda application: application["deadline"]
+    )
+
+
+    for application in sorted_applications:
+        print(
+            "company:", application["company"],
+            "-",application["job_role"],
+            "-",application["deadline"]
+        )
+
 
 def view_applications(applications):
 
@@ -240,7 +254,7 @@ def view_applications(applications):
 
 choice = "0"
 
-while choice != "9":
+while choice != "10":
 
     print("\nJob Application Tracker")
     print("1. Add Application")
@@ -251,7 +265,8 @@ while choice != "9":
     print("6. Filter Application")
     print("7. Deadline Reminder")
     print("8. Dashboard")
-    print("9. Exit")
+    print("9. sort by deadline")
+    print("10. Exit")
 
     choice = input("Enter your choice: ")
 
@@ -279,7 +294,12 @@ while choice != "9":
     elif choice == "8":
         show_dashboard(applications)
 
+
     elif choice == "9":
+        sort_by_deadline(applications)
+
+
+    elif choice == "10":
         print("Exiting the program.")
 
     else:
