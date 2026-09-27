@@ -191,6 +191,34 @@ def deadline_reminder(applications):
     if not found:
         print("No upcoming deadlines.")
 
+def show_dashboard(applications):
+    total_applications = len(applications)
+    applied = 0
+    interview_scheduled = 0
+    reviewed = 0
+    rejected = 0
+
+    for application in applications:
+
+        if application["status"].lower() == "applied":
+            applied += 1
+
+        if application["status"].lower() == "interview scheduled":
+            interview_scheduled += 1
+
+        if application["status"].lower() == "reviewed":
+            reviewed += 1
+
+        if application["status"].lower() == "rejected":
+            rejected += 1
+
+    print("Total Applications:", total_applications)
+    print("Applied:", applied)
+    print("Interview Scheduled:", interview_scheduled)
+    print("Reviewed:", reviewed)
+    print("Rejected:", rejected)
+
+
 
 def view_applications(applications):
 
@@ -212,7 +240,7 @@ def view_applications(applications):
 
 choice = "0"
 
-while choice != "8":
+while choice != "9":
 
     print("\nJob Application Tracker")
     print("1. Add Application")
@@ -222,7 +250,8 @@ while choice != "8":
     print("5. Search Application")
     print("6. Filter Application")
     print("7. Deadline Reminder")
-    print("8. Exit")
+    print("8. Dashboard")
+    print("9. Exit")
 
     choice = input("Enter your choice: ")
 
@@ -248,6 +277,9 @@ while choice != "8":
         deadline_reminder(applications)
 
     elif choice == "8":
+        show_dashboard(applications)
+
+    elif choice == "9":
         print("Exiting the program.")
 
     else:
