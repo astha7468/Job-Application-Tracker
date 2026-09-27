@@ -14,6 +14,10 @@ def is_valid_date(date_text):
 with open("applications.json", "r") as file:
     applications = json.load(file)
 
+def save_applications(applications):
+    with open("applications.json","w") as file:
+        json.dump(applications,file,indent=4)
+
 
 def add_application(applications):
 
@@ -56,6 +60,7 @@ def add_application(applications):
     }
 
     applications.append(application)
+    save_applications(applications)
 
     print("Application added successfully!")
 
@@ -82,6 +87,7 @@ def update_status(applications):
     new_status = input("Enter new status: ").strip()
 
     applications[index]["status"] = new_status
+    save_applications(applications)
 
     print("Status updated successfully!")
 
@@ -106,6 +112,7 @@ def delete_application(applications):
     index = choice - 1
 
     del applications[index]
+    save_applications(applications)
 
     print("Application deleted successfully!")
 
