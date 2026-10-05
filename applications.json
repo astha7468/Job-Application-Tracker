@@ -6,7 +6,8 @@
         "application_date": "2026-11-06",
         "deadline": "2026-11-09",
         "status": "Interview Scheule",
-        "job_url": "www.wipro.com"
+        "job_url": "www.wipro.com",
+        "id": 1
     },
     {
         "company": "indeed",
@@ -15,7 +16,8 @@
         "application_date": "2026-10-04",
         "deadline": "2026-10-26",
         "status": "applied",
-        "job_url": "www.indeed.com"
+        "job_url": "www.indeed.com",
+        "id": 2
     },
     {
         "company": "tcs",
@@ -24,7 +26,8 @@
         "application_date": "2027-08-01",
         "deadline": "2027-08-23",
         "status": "applied",
-        "job_url": "www.amazon.com"
+        "job_url": "www.amazon.com",
+        "id": 3
     },
     {
         "company": "wipro",
@@ -33,7 +36,8 @@
         "application_date": "2028-06-03",
         "deadline": "2028-07-04",
         "status": "reviewed",
-        "job_url": "www.wipro.com"
+        "job_url": "www.wipro.com",
+        "id": 4
     },
     {
         "company": "linkdlein",
@@ -42,7 +46,8 @@
         "application_date": "2029-01-02",
         "deadline": "2029-02-08",
         "status": "applied",
-        "job_url": "www.linkdlin.com"
+        "job_url": "www.linkdlin.com",
+        "id": 5
     },
     {
         "company": "axteria",
@@ -51,7 +56,8 @@
         "application_date": "2029-07-09",
         "deadline": "2029-07-30",
         "status": "rejected",
-        "job_url": "www.hcl tech.com"
+        "job_url": "www.hcl tech.com",
+        "id": 6
     },
     {
         "company": "beckkon",
@@ -60,7 +66,8 @@
         "application_date": "2027-07-09",
         "deadline": "2027-09-08",
         "status": "applied",
-        "job_url": "wwww.beckkon.com"
+        "job_url": "wwww.beckkon.com",
+        "id": 7
     },
     {
         "company": "indeed",
@@ -69,7 +76,8 @@
         "application_date": "2027-09-13",
         "deadline": "2026-10-09",
         "status": "rejected",
-        "job_url": "www.indeed.com"
+        "job_url": "www.indeed.com",
+        "id": 8
     },
     {
         "company": "axtria",
@@ -78,6 +86,7 @@
         "application_date": "2027-04-23",
         "deadline": "2027-09-08",
         "status": "applied",
-        "job_url": "www.axtria.com"
+        "job_url": "www.axtria.com",
+        "id": 9
     }
 ]
