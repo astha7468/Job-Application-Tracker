@@ -46,6 +46,50 @@ def get_applications():
     return applications
 
 
+@app.get("/applications/search")
+def search_applications(
+    company: str | None = None,
+    job_role: str | None = None,
+    location: str | None = None,
+    application_date: str | None = None,
+    deadline: str | None = None,
+    status: str | None = None,
+    job_url: str | None = None,
+    id: int | None = None
+):
+    results = []
+
+    for application in applications:
+
+        if company and company.lower() not in application["company"].lower():
+            continue
+
+        if job_role and job_role.lower() not in application["job_role"].lower():
+            continue
+
+        if location and location.lower() not in application["location"].lower():
+            continue
+
+        if application_date and application_date not in application["application_date"]:
+            continue
+
+        if deadline and deadline not in application["deadline"]:
+            continue
+
+        if status and status.lower() not in application["status"].lower():
+            continue
+
+        if job_url and job_url.lower() not in application["job_url"].lower():
+            continue
+
+        if id is not None and application["id"] != id:
+            continue
+
+        results.append(application)
+
+    return results
+
+
 @app.get("/applications/{application_id}")
 def get_application(application_id: int):
 
