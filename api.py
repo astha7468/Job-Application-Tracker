@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from fastapi import FastAPI, HTTPException
 import json
+from datetime import datetime, timedelta
 
 app = FastAPI()
 
@@ -120,7 +121,39 @@ def deadline_reminder(days: int = 7):
 
     return results
 
-from datetime import datetime, timedelta
+
+@app.get("/applications/dashboard")
+def dashboard():
+
+    total = len(applications)
+
+    status_count = {}
+
+    for application in applications:
+        status = application["status"]
+
+        if status in status_count:
+            status_count[status] += 1
+        else:
+            status_count[status] = 1
+
+    return {
+        "total_applications": total,
+        "status_count": status_count
+    }
+
+
+@app.get("/applications/sort")
+def sort_by_deadline():
+
+    sorted_applications = sorted(
+        applications,
+        key=lambda application: application["deadline"]
+    )
+
+    return sorted_applications
+
+
 
 
 @app.get("/applications/{application_id}")
