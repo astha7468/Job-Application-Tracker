@@ -90,6 +90,39 @@ def search_applications(
     return results
 
 
+
+@app.get("/applications/filter")
+def filter_applications(status: str):
+    results = []
+
+    for application in applications:
+        if application["status"].lower() == status.lower():
+            results.append(application)
+
+    return results
+
+@app.get("/applications/deadline-reminder")
+def deadline_reminder(days: int = 7):
+
+    today = datetime.today().date()
+    reminder_date = today + timedelta(days=days)
+
+    results = []
+
+    for application in applications:
+        deadline = datetime.strptime(
+            application["deadline"],
+            "%Y-%m-%d"
+        ).date()
+
+        if today <= deadline <= reminder_date:
+            results.append(application)
+
+    return results
+
+from datetime import datetime, timedelta
+
+
 @app.get("/applications/{application_id}")
 def get_application(application_id: int):
 
